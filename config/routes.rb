@@ -33,8 +33,25 @@ Rails.application.routes.draw do
   end
   
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-end
+  end
 
   # devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # devise_for :customers
+  devise_for :admin, skip: [:registrations, :passwords], controller => {
+    :sessions => 'admin/sessions',
+  }
+  namespace :admin do 
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :items, only: [:index, :new, :create, :edit, :update,]
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :orders, only: [:index, :show, :update] do 
+      member do 
+        get :order_details 
+        resource :order_details, only: [:update]
+      end 
+     end 
+   end 
 end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
