@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :customers, :controllers => {
-      :sessions => 'public/sessions',
-      :registrations => 'public/registrations',
-      :passwords => 'public/passwords'
+  devise_for :customers,skip: [:passwords], controllers: {
+    sessions: 'public/sessions',
+    registrations: 'public/registrations',
+    passwords: 'public/passwords'
   }
-  
+
   root 'public/homes#top'
   get 'about' => 'public/homes#about'
-  
-  scope module: :customers do
+
+  scope module: :public do
     resources :items, only: [:index, :show]
     get 'edit/customers' => 'customers#edit'
-    patch 'update/customers' => 'cutomers#update'
+    patch 'update/customers' => 'customers#update'
   resources :customers, only:  [:show, :edit, :update] do
     collection do
     get 'customers/unsubscribe' => 'customers#unsubscribe'
@@ -38,20 +38,19 @@ Rails.application.routes.draw do
   # devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise_for :customers
-  devise_for :admin, skip: [:registrations, :passwords], controller => {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     :sessions => 'admin/sessions',
   }
-  namespace :admin do 
+  namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :new, :create, :edit, :update,]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :orders, only: [:index, :show, :update] do 
-      member do 
-        get :order_details 
+    resources :orders, only: [:index, :show, :update] do
+      member do
+        get :order_details
         resource :order_details, only: [:update]
-      end 
-     end 
-   end 
+      end
+     end
+   end
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
