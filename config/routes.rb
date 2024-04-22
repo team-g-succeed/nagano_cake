@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :customer do
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/show'
+    get 'items/new'
+    get 'items/edit'
+  end
   devise_for :customers,skip: [:passwords], controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations',
@@ -43,7 +57,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :items, only: [:index, :new, :create, :edit, :update,]
+    resources :items, only: [:index, :new, :create, :edit, :update, :show]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show, :update] do
       member do
