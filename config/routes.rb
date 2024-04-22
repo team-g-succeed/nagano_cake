@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  
+
   # devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise_for :customers
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: 'admin/sessions'
   }
-
+  
   devise_for :customers,skip: [:passwords], controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations',
@@ -42,7 +44,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :items, only: [:index, :new, :create, :edit, :update,]
+    resources :items, only: [:index, :new, :create, :edit, :update, :show]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show, :update] do
       member do
