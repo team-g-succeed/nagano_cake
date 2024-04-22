@@ -1,2 +1,6 @@
-$("#genre_index_new").html("<%= escape_javascript(render 'genre_new', genre: @genres) %>")
-$('#form').val('')
+<% genre.each do |genre| %>
+  <tr>
+    <td><%= genre.name %></td>
+    <td><%= link_to "編集する", edit_admin_genre_path(genre), class:"btn btn-success py-0" %></td>
+  </tr>
+<% end %>
