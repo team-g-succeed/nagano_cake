@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     passwords: 'public/passwords'
   }
 
-  root 'public/homes#top'
+  root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
 
   scope module: :public do
