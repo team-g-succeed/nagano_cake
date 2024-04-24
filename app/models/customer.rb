@@ -14,9 +14,9 @@ class Customer < ApplicationRecord
     validates :postal_code
     validates :address
     validates :telephone_number
+  end 
          
   def full_name
     self.last_name + " " + self.first_name
-
   end
 end
