@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'customers/my_page' => 'customers#show'
-  end
+ 
 
   resources :cart_items, only: [:index, :create, :destroy, :update] do
       collection do
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       get 'thanks'
     end
   end
+ end
 
 <<<<<<< Updated upstream
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
