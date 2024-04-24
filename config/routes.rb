@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+
+  
+
   # devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise_for :customers
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: 'admin/sessions'
-  }
-
+  
   devise_for :customers,skip: [:passwords], controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations',
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     patch 'customers/withdraw' => 'customers#withdraw'
     get 'customers/my_page' => 'customers#show'
-  end
+ 
 
   resources :cart_items, only: [:index, :create, :destroy, :update] do
       collection do
@@ -37,18 +39,25 @@ Rails.application.routes.draw do
       get 'thanks'
     end
   end
-<<<<<<< Updated upstream
-=======
+
+
+
 
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  end
->>>>>>> Stashed changes
+ end
 
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
-  namespace :admin do
+
+
+
+
+  # devise_for :admins
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # devise_for :customers
+ 
+  namespace :admin do 
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :items, only: [:index, :new, :create, :edit, :update,]
+    resources :items, only: [:index, :new, :create, :edit, :update, :show]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :orders, only: [:index, :show, :update] do
       member do

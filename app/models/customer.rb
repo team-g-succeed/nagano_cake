@@ -4,6 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   with_options presence: true do
     validates :last_name
     validates :first_name
@@ -13,5 +14,9 @@ class Customer < ApplicationRecord
     validates :postal_code
     validates :address
     validates :telephone_number
+         
+  def full_name
+    self.last_name + " " + self.first_name
+
   end
 end
