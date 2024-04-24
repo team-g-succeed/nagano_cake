@@ -24,4 +24,21 @@ class Admin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+  
+  private
+  
+  def customer_state
+    customer = Customer.find_by(email: params[:customer][:email])
+    if customer.nil?
+      redirect_to new_customer_registration_path
+    end
+    if customer.valid_password?(params[:customer][:password]) && (customer.is_active == false)
+      redirect_to new_customer_registration_path
+    end
+  end
+  
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< Updated upstream
+
 
   
 
@@ -8,13 +8,6 @@ Rails.application.routes.draw do
   # devise_for :customers
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: 'admin/sessions'
-=======
-  devise_for :customers, controllers: {
-      :sessions => 'public/sessions',
-      :registrations => 'public/registrations',
-      :passwords => 'public/passwords'
->>>>>>> Stashed changes
-  }
   
   devise_for :customers,skip: [:passwords], controllers: {
     sessions: 'public/sessions',
@@ -22,7 +15,7 @@ Rails.application.routes.draw do
     passwords: 'public/passwords'
   }
 
-  root 'public/homes#top'
+  root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
 
   scope module: :public do
@@ -46,21 +39,23 @@ Rails.application.routes.draw do
       get 'thanks'
     end
   end
+
+
+
+
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
  end
 
-<<<<<<< Updated upstream
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
-  namespace :admin do
-=======
+
+
+
+
   # devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise_for :customers
-  devise_for :admin, skip: [:registrations, :passwords], controllers: {
-    :sessions => 'admin/sessions'
-  }
+ 
   namespace :admin do 
->>>>>>> Stashed changes
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :new, :create, :edit, :update, :show]
     resources :genres, only: [:index, :create, :edit, :update]
