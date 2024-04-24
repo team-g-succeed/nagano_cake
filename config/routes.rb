@@ -37,6 +37,12 @@ Rails.application.routes.draw do
       get 'thanks'
     end
   end
+<<<<<<< Updated upstream
+=======
+
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  end
+>>>>>>> Stashed changes
 
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
