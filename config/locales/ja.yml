@@ -11,7 +11,7 @@ ja:
         preparing: "発送準備中"
         sented: "発送済み"
       making_status:
-        impossible: "着手不可"
+        disable: "着手不可"
         waiting: "製作待ち"
         production: "製作中"
         complete: "製作完了"
