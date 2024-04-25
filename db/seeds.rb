@@ -10,7 +10,6 @@
 
 
   Customer.create(
-
     last_name: "山田",
     first_name: "太郎",
     last_name_kana: 'ヤマダ',
@@ -19,7 +18,7 @@
     address: "東京都新宿区ズンバタワー",
     telephone_number: 10000000000,
     email: "yamada@taro",
-    encrypted_password: 'yamadataro'
+    encrypted_password: 'yamadataro',
     password_confirmation: 'yamadataro',
     is_active: true
   )
