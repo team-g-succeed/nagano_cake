@@ -1,22 +1,26 @@
 class Public::ItemsController < ApplicationController
-  def index
-    @items, @sort = get_items(params)
-    @items = @items.page(params[:page]).per(8)
-  end
+ 
   
+ def index
+    @items = Item.page(params[:page])
+ end
+
   def show
     @item = Item.find(params[:id])
+    @cart_item = CartItem.new
   end
 
   private
 
-  def get_items(params)
-    # デフォルトのソートパラメータを安全な値に設定
-    sort = params[:sort] || 'created_at DESC'  # 例として created_at を使用
-    # params[:sort] の値をチェックして、許可された値のみを使用
-    allowed_sorts = ['created_at DESC', 'price ASC', 'name ASC']
-    sort = allowed_sorts.include?(params[:sort]) ? params[:sort] : 'created_at DESC'
-    items = Item.order(sort)
-    return items, sort
+  def all_genre
+    @genres = Genre.all
   end
+
+  private
+
+ 
+  def item_params
+    params.require(:item).permit(:image, :genre_id, :name, :introduction, :price, :is_active)
+  end
+
 end
