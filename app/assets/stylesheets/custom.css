@@ -1,0 +1,38 @@
+.btn-circle {
+    border-radius: 50%;
+    padding: 10px 16px;
+}
+
+.pagination {
+    padding: 0.5em;
+    font-size: 16px;
+}
+.pagination a {
+    margin: 0 10px;
+}
+.pagination .page.current {
+    font-weight: bold;
+}
+
+.genre-search-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #c0c0c0; /* 外枠の色変更 */
+  border-radius: 5px; /* 角を丸める */
+}
+
+.genre-search-table th, .genre-search-table td {
+  border: none; /* 内側の線を消す */
+}
+
+.genre-search-table th {
+  background-color: #f8f9fa; /* ヘッダーの背景色（Bootstrapのbg-light相当） */
+}
+
+.genre-search-table td {
+  padding: 8px; /* パディングを調整 */
+}
+
+.genre-search-table td {
+  border: none;
+}
