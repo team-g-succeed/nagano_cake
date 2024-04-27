@@ -1,84 +1,147 @@
+<<<<<<< HEAD
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="/">
       <%= image_tag 'ながのCAKE_ロゴ.png', alt: 'Nagano Cake Logo', height: '40' %>
       <span>Nagano Cake</span></a>
+=======
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
       <% if admin_signed_in? %>
         <p></p>
       <% elsif customer_signed_in? %>
         <p class="text-light mt-3 ml-auto">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！</p>
       <% end %>
+<<<<<<< HEAD
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+=======
+      <button class="navbar-toggler mx-5" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <li>
+<<<<<<< HEAD
             <%= link_to admin_items_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to admin_items_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               商品一覧
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to admin_customers_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to admin_customers_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               会員一覧
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to admin_orders_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to admin_orders_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               注文履歴一覧
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to admin_genres_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to admin_genres_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               ジャンル一覧
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %>
+=======
+            <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               ログアウト
             <% end %>
           </li>
         <% elsif customer_signed_in? %>
           <li>
+<<<<<<< HEAD
             <%= link_to  customers_my_page_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to  customers_my_page_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               マイページ
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%=  link_to items_path,class: 'nav-link text-light' do %>
+=======
+            <%=  link_to items_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               商品一覧
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to cart_items_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to cart_items_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               カート
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %>
+=======
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               ログアウト
             <% end %>
           </li>
         <% else %>
           <li>
+<<<<<<< HEAD
             <%= link_to about_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to about_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               About
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to items_path,class: 'nav-link text-light' do %>
+=======
+            <%= link_to items_path,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               商品一覧
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to new_customer_registration_path ,class: 'nav-link text-light' do %>
+=======
+            <%= link_to new_customer_registration_path ,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               新規登録
             <% end %>
           </li>
           <li>
+<<<<<<< HEAD
             <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %>
+=======
+            <%= link_to new_customer_session_path ,class: 'nav-link text-dark' do %>
+>>>>>>> b317b755058ed9d73ce8951e5c9706f7addb89c3
               ログイン
             <% end %>
           </li>
