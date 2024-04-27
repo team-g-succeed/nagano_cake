@@ -1,22 +1,22 @@
 module ApplicationHelper
     def full_name(customer)
         customer.last_name + customer.first_name
-    end 
-    
+    end
+
     def sub_price(sub)
-        sub.item.tax_in_price * sub.count
-    end 
-    
-    def total_price(totals)
+        sub.item.add_tax_items_price * sub.amount
+    end
+
+    def total_payment(cart_items)
         price = 0
-        totals.each do |total|
-            price += sub_price(total)
-        end 
+        cart_items.each do |cart_item|
+            price += sub_price(cart_item)
+        end
         return price
-    end 
-    
+    end
+
     def billing(order)
-        total_price(current_cart) + order.shipping_cost
-    end 
-        
+        total_payment(current_customer.cart_items) + order.shipping_cost
+    end
+
 end
