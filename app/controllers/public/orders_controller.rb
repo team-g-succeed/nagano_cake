@@ -35,7 +35,6 @@ class Public::OrdersController < ApplicationController
       @order.address = ship.address
       @order.name = ship.name
 
-
      elsif params[:order][:my_address] == "3"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
@@ -50,8 +49,9 @@ class Public::OrdersController < ApplicationController
    end
         
     def create
-        @order = current_customer.order.new(order_params)
-        @order.save
+        @order = current_customer.orders.new(order_params)
+        @order.save!
+        
         
         if params[:order][:ship] =="1"
             current_customer.address.create(address_params)
@@ -62,8 +62,8 @@ class Public::OrdersController < ApplicationController
             @order_detail = OrderDetail.new
             @order_detail.item_id = cart_item.item_id
             @order_detail.order_id = @order.id
-            @order_detail.count = cart_item.count
-            @order_detail.price = cart_item.item.price * cart_item.count
+            @order_detail.amount = cart_item.amount
+            @order_detail.price = cart_item.item.price * cart_item.amount
             @order_detail.save
         end 
         
@@ -77,7 +77,7 @@ class Public::OrdersController < ApplicationController
         
     private
     def address_params
-        params.require(:oreder).permit(:postal_code, :address, :name, :payment_method, :total_payment)
+        params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment)
     end 
     
     

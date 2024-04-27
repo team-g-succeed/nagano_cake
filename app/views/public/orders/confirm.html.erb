@@ -15,14 +15,14 @@
                   <% @cart_items.each do |cart| %>
                    <tr>
                        <td class="text_left">
-                        <%= attchment_image_tag(cart.item, :image, size: "60x50") %>
+                        <%= image_tag cart.item.image %>
                         <%= cart.item.name %>
                        </td>
                        <td class="text_right">
-                        <%= cart.item.tax_price.to_s(:delimited) %>
+                        <%= cart.item.add_tax_items_price.to_s(:delimited) %>
                        </td>
                        <td class="text_right">
-                        <%= cart.count %>
+                        <%= cart.amount %>
                        </td>
                        <td class="text_right">
                         <%= sub_price(cart).to_s(:delimited) %>
@@ -40,7 +40,7 @@
           </tr>
           <tr>
             <th class="info">商品合計</th>
-            <td class="text-right">¥<%= total_price(@cart_items).to_s(:delimited) %></td>
+            <td class="text-right">¥<%= total_payment(@cart_items).to_s(:delimited) %></td>
           </tr>
           <tr>
             <th class="info">請求金額</th>

@@ -34,7 +34,7 @@
                 </div>
               </td>
               <td class="text-center align-middle">
-                <%= cart_item.item.with_tax_price %>
+                <%= cart_item.item.add_tax_items_price %>
               </td>
                 <td>
                   <div class="form-group mt-3">
@@ -51,7 +51,7 @@
                   </div>
                 </td>
               <td class="text-center align-middle">
-                <%= cart_item.amount * cart_item.item.with_tax_price %>
+                <%= cart_item.amount * cart_item.item.add_tax_items_price %>
               </td>
               <td class="text-center align-middle">
                 <%= link_to cart_item_path(cart_item), method: :delete do %>
@@ -61,7 +61,7 @@
                 <% end %>
               </td>
             </tr>
-            <% @total = cart_item.amount * cart_item.item.with_tax_price + @total %>
+            <% @total = cart_item.amount * cart_item.item.add_tax_items_price + @total %>
             <% end %>
           </tbody>
         </table>
