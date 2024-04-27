@@ -1,5 +1,8 @@
 class Public::ItemsController < ApplicationController
- 
+  def index
+    @items, @sort = get_items(params)
+    @items = @items.page(params[:page]).per(8)
+  end
   
  def index
     @items = Item.page(params[:page])

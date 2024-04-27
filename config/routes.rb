@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :index, :show, :create] do
     member do
       post 'confirm'
-      get 'thanks'
+      get 'orders/thanks' => 'orders#thanks'
     end
   end
 

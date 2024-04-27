@@ -16,7 +16,7 @@
         <% @items[0,4].each do |item| %>
           <td>
             <%= link_to item_path(item) do %>
-              <%= image_tag item.get_image(200,200), class: "image" %>
+              <%= image_tag item.get_image(100,100), class: "image" %>
             <% end %>
             <br>
             <strong><%= item.name %></strong>
@@ -33,3 +33,4 @@
     </div>
   </div>
 </div>
+

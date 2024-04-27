@@ -25,9 +25,19 @@
 <!-- <div class="col-md-9">
   <div class="row">
     <!-- 商品画像 -->
+
+    <!--<div class="col-md-12">-->
+
+    <!--  <#%= image_tag @item.image, width: "300px", height: "auto", style: "margin-top: 5px;" %>-->
+
+    <!--  <#%= image_tag @item.image, width: "250px", height: "auto", style: "margin-top: 5px;" %>-->
+
+    <!--</div>-->
+
 <!--     <div class="col-md-12"> -->
 <!-- <#= image_tag @item.image, width: "300px", height: "auto", style: "margin-top: 5px;" %> --> -->
 <!--     </div> -->
+
       <!-- 商品の詳細 -->
 <!--       <div class="col-md-12"> -->
 <!--         <h2><#%= @item.name %></h2> -->
@@ -37,6 +47,23 @@
 <!--           ¥ <#%= number_with_delimiter(@item.price) %><small style="font-size: 18px; font-weight: normal;"> (税込)</small> -->
 <!--         </div> -->
         <!-- 数量選択とカート追加 -->
+
+<!--        <#%= form_with model: @item, url: cart_items_path, local: true do |f| %>-->
+<!--          <div style="display: flex; align-items: center; margin-top: 10px;">-->
+<!--            <#%= f.number_field :quantity, in: 1..10, step: 1, class: 'form-control', style: 'width: 130px; display: inline-block; margin-right: 10px;', placeholder: '個数選択' %>-->
+
+<!--        <#%= form_with model:@cart_item, url: cart_items_path, method: :post do |f| %>-->
+<!--          <div style="display: flex; align-items: center; margin-top: 10px;">-->
+<!--            <#%= f.number_field :amount, in: 1..10, step: 1, class: 'form-control', style: 'width: 130px; display: inline-block; margin-right: 10px;', placeholder: '個数選択' %>-->
+
+<!--            <#%= f.submit "カートに追加", class: "btn btn-primary", style: 'align-self: center;' %>-->
+<!--          </div>-->
+<!--        <#% end %>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
 <!--         <= form_with model: @item, url: cart_items_path, local: true do |f| %> -->
 <!--           <div style="display: flex; align-items: center; margin-top: 10px;"> -->
 <!--             <#%= f.number_field :quantity, in: 1..10, step: 1, class: 'form-control', style: 'width: 130px; display: inline-block; margin-right: 10px;', placeholder: '個数選択' %> -->
@@ -46,26 +73,9 @@
 <!--       </div> -->
 <!--     </div> -->
 <!--   </div> -->
-<!-- </div> --> -->
+<!-- </div> -->
 
-<!-- <script> -->
-<!-- document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('form');
-  const submitButton = form.querySelector('input[type="submit"]');
-  const quantityInput = form.querySelector('input[name="quantity"]');
 
-  form.addEventListener('submit', function(event) {
-    console.log('フォームが送信されようとしています', '入力数値:', quantityInput.value);
-    const quantityValue = parseInt(quantityInput.value, 10);
-    // 数量が1~99の範囲外か、空の場合
-    if (!quantityValue || quantityValue < 1 || quantityValue > 99) {
-      event.preventDefault(); // フォーム送信を阻止
-      alert('数量は1から99の間で入力してください。');
-    }
-  });
-}); -->
-<!-- </script> -->
-  
 <!-- 泰輔の記述↓ -->
   <div class="row">
     <div class="col-lg-10 d-flex mt-5">
