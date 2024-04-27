@@ -1,8 +1,13 @@
 class Public::ItemsController < ApplicationController
+<<<<<<< Updated upstream
   def index
     @items, @sort = get_items(params)
     @items = @items.page(params[:page]).per(8)
   end
+=======
+ 
+
+>>>>>>> Stashed changes
   
   def show
     @item = Item.find(params[:id])

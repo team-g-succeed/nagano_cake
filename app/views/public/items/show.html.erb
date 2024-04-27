@@ -25,7 +25,11 @@
   <div class="row">
     <!-- 商品画像 -->
     <div class="col-md-12">
+<<<<<<< Updated upstream
       <%= image_tag @item.image, width: "300px", height: "auto", style: "margin-top: 5px;" %>
+=======
+      <%= image_tag @item.image, width: "250px", height: "auto", style: "margin-top: 5px;" %>
+>>>>>>> Stashed changes
     </div>
       <!-- 商品の詳細 -->
       <div class="col-md-12">
@@ -36,9 +40,15 @@
           ¥ <%= number_with_delimiter(@item.price) %><small style="font-size: 18px; font-weight: normal;"> (税込)</small>
         </div>
         <!-- 数量選択とカート追加 -->
+<<<<<<< Updated upstream
         <%= form_with model: @item, url: cart_items_path, local: true do |f| %>
           <div style="display: flex; align-items: center; margin-top: 10px;">
             <%= f.number_field :quantity, in: 1..10, step: 1, class: 'form-control', style: 'width: 130px; display: inline-block; margin-right: 10px;', placeholder: '個数選択' %>
+=======
+        <%= form_with model:@cart_item, url: cart_items_path, method: :post do |f| %>
+          <div style="display: flex; align-items: center; margin-top: 10px;">
+            <%= f.number_field :amount, in: 1..10, step: 1, class: 'form-control', style: 'width: 130px; display: inline-block; margin-right: 10px;', placeholder: '個数選択' %>
+>>>>>>> Stashed changes
             <%= f.submit "カートに追加", class: "btn btn-primary", style: 'align-self: center;' %>
           </div>
         <% end %>
@@ -46,6 +56,10 @@
     </div>
   </div>
 </div>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,5 +76,53 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('数量は1から99の間で入力してください。');
     }
   });
+<<<<<<< Updated upstream
 });
 </script>
+=======
+}); -->
+<!-- </script> -->
+
+<!-- 泰輔の記述↓ -->
+<!--  <div class="row">-->
+<!--    <div class="col-lg-10 d-flex mt-5">-->
+<!--      <div>-->
+<!--        <#%= image_tag @item.get_image(300,300), class: "image" %>-->
+<!--      </div>-->
+<!--      <table class="table table-borderless ml-5">-->
+<!--        <tr>-->
+<!--          <td>-->
+<!--            <h3><strong><#%= @item.name %></strong></h3>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>-->
+<!--            <p><#%= @item.introduction %></p>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>-->
+<!--            <h4>¥<#%= @item.with_tax_price %><span>(税込)</span></h4>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>-->
+<!--            <#% if @item.is_active == true %>-->
+<!--              <#%= form_with model: @cart_item, url: cart_items_path, method: :post do |cart_item| %>-->
+<!--              <#%= cart_item.select :amount,[1,2,3,4,5,6,7,8,9,10], {include_blank: '個数選択'},required:true %>&emsp;-->
+<!--                <#% if customer_signed_in? %>-->
+<!--                  <#%= cart_item.hidden_field :customer_id, value: current_customer.id %>-->
+<!--                  <#%= cart_item.hidden_field :item_id, value: @item.id %>-->
+<!--                  <#%= cart_item.submit 'カートに入れる', class: 'btn btn-success btn-md' %>-->
+<!--                <#% end %>-->
+<!--              <#% end %>-->
+<!--            <#% else %>-->
+<!--              <h6 class="text-danger">こちらの商品は在庫切れのため販売停止中です。</h6>-->
+<!--            <#% end %>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+>>>>>>> Stashed changes
