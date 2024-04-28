@@ -1,0 +1,49 @@
+<div class='container'>
+  <h2 class="my-5">商品編集</h2>
+  <%= form_with model: @item, url: admin_item_path, local: true, class: 'edit_item' do |f| %>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th><%= f.label :image, "商品画像" %></th>
+          <td>
+            <%= f.file_field :image, class: "form-control" %>
+            <% if @item.image.attached? %>
+              <div class="image-preview">
+                <%= image_tag @item.image, class: "img-thumbnail", size: "100x100" %>
+                <span style="font-size: small; margin-left: 10px;">変更前の画像</span>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label :name, "商品名" %></th>
+          <td><%= f.text_field :name, value: @item.name, required: true, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :introduction, "商品説明" %></th>
+          <td><%= f.text_area :introduction, value: @item.introduction, required: true, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :genre_id, "ジャンル" %></th>
+          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "--ジャンルを選択--" }, { required: true, class: "form-control" } %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :price, "税抜価格" %></th>
+          <td><%= f.text_field :price, value: @item.price, required: true, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :is_active, "販売ステータス" %></th>
+          <td>
+            <%= f.radio_button :is_active, true, required: true %> <%= f.label :is_active_true, "販売中" %>
+            <%= f.radio_button :is_active, false, required: true %> <%= f.label :is_active_false, "販売停止中" %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <%= f.submit "変更を保存", class: "btn btn-primary" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

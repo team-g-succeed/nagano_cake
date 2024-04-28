@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="my-5">商品一覧</h2>
+        <%= link_to new_admin_item_path, class: "btn btn-custom", style: "background-color: #fffacd; border: 2px solid #d2b48c; border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;" do %>
+            <i class="fa-solid fa-plus" style="color: #ee82ee; font-size: 24px;"></i>
+        <% end %>
+    </div>
+    <%= form_tag destroy_multiple_admin_items_path, method: :delete, id: "items_form" do %>
+        <table class="table">
+            <thead>
+                <tr style="background-color: #ffffe0;">
+                    <th>商品ID</th>
+                    <th>商品名</th>
+                    <th>税抜価格</th>
+                    <th>ジャンル</th>
+                    <th>ステータス</th>
+                    <th>
+                        <%= button_tag(type: 'submit', class: 'btn btn-danger', data: { confirm: "選択された商品を削除してもよろしいですか？" }) do %>
+                            <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+                        <% end %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @items.each do |item| %>
+                <tr>
+                    <td><%= link_to admin_item_path(item) do %><%= item.id %><% end %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.price %></td>
+                    <td><%= item.genre&.name %></td>
+                    <td>
+                      <% if item.is_active %>
+                        <span style="font-weight: bold; color: green;">販売中</span>
+                      <% else %>
+                        <span style="font-weight: bold; color: gray;">販売停止中</span>
+                      <% end %>
+                    </td>
+                    <td><input type="checkbox" name="item_ids[]" value="<%= item.id %>"></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        
+
+    <% end %>
+    <div class="d-flex justify-content-center"> 
+        <%= paginate @items, separator: '|', previous_label: '<< Previous  ', next_label: '  Next >>', class: 'pagination' %>
+    </div>
+</div>

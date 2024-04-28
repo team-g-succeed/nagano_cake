@@ -1,0 +1,40 @@
+<div class="container">
+    <h2 class="my-5">商品詳細</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <%= image_tag @item.image, size: "230x230" %>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th>商品名</th>
+                        <td><%= @item.name %></td>
+                    </tr>
+                    <tr>
+                        <th>商品説明</th>
+                        <td><%= @item.introduction %></td>
+                    </tr>
+                    <tr>
+                        <th>ジャンル</th>
+                        <td><%= @item.genre_id %></td> <!-- ジャンルの表示を改善する場合は、ジャンルの名前を表示するように変更する必要があります -->
+                    </tr>
+                    <tr>
+                        <th>税込価格</th>
+                        <td><%= @item.add_tax_items_price.to_s(:delimited) %>円 (税抜価格: <%= @item.price %>円)</td>
+                    </tr>
+                    <tr>
+                        <th>販売ステータス</th>
+                        <td>
+                          <%= @item.is_active ? raw('<span class="text-success font-weight-bold">販売中</span>') : raw('<span class="text-secondary font-weight-bold">販売停止中</span>') %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success text-white" %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
