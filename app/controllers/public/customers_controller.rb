@@ -13,6 +13,17 @@ class Public::CustomersController < ApplicationController
     customer.update(customer_params)
     redirect_to customers_my_page_path
   end
+  
+  def unscribe
+  end 
+  
+  def withdraw
+    @customer = Customer.find(current_customer.id)
+    @customer.update(is_delated: true,is_active: false)
+    reset_session
+    flash[:notice] = "退会処理を実行しました。"
+    redirect_to root_path
+  end 
 
   private
 

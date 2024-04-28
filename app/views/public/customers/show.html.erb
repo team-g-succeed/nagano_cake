@@ -37,13 +37,15 @@
               <td><%= @customer.email %></td>
             </tr>
           </table>
+          
             <div class="d-flex align-items-center">
               <b>配送先</b>
-              <%= link_to "一覧を見る", addresses_path, class:"btn btn-primary ml-3" %>
+              <p><%= link_to "一覧を見る", addresses_path, class:"btn btn-primary ml-3" %></p>
             </div>
+            
             <div class="d-flex align-items-center">
               <b>注文履歴</b>
-              <%= link_to "一覧を見る", orders_path, class:"btn btn-primary ml-3" %>
+              <p><%= link_to "一覧を見る", orders_path, class:"btn btn-primary ml-3" %></p>
            </div>
     </div>
   </div>

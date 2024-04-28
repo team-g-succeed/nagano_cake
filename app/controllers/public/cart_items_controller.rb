@@ -12,7 +12,7 @@ class Public::CartItemsController < ApplicationController
     end 
     
     def destroy_all
-        CratItem.destroy_all
+        CartItem.destroy_all
         redirect_to request.referer
     end 
     

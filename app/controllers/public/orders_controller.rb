@@ -14,7 +14,7 @@ class Public::OrdersController < ApplicationController
     
     def new
         @order = Order.new
-        @address = current_customer.address
+        @addresses = current_customer.addresses
     end 
     
    def confirm
@@ -22,7 +22,7 @@ class Public::OrdersController < ApplicationController
     
     @order = Order.new(order_params)
         
-        @order.total_payment = billing(@order)
+    @order.total_payment = billing(@order)
     
      if params[:order][:my_address] == "1"
       @order.postal_code = current_customer.postal_code
@@ -41,7 +41,7 @@ class Public::OrdersController < ApplicationController
       @order.name = params[:order][:name]
       @ship = "1"
 
-      unless @order.valid? == true
+      unless @order.invalid? == true
         @addresses = Address.where(customer: current_customer)
         render :new
       end
@@ -53,9 +53,9 @@ class Public::OrdersController < ApplicationController
         @order.save!
         
         
-        if params[:order][:ship] =="1"
-            current_customer.address.create(address_params)
-        end 
+        #  if params[:order][:ship] =="1"
+        #     current_customer.address.create(address_params)
+        # end 
         
         @cart_items = current_customer.cart_items
         @cart_items.each do |cart_item|

@@ -15,7 +15,7 @@
                   <% @cart_items.each do |cart| %>
                    <tr>
                        <td class="text_left">
-                        <%= image_tag cart.item.image %>
+                        <%= image_tag cart.item.image, size: "100x100" %>
                         <%= cart.item.name %>
                        </td>
                        <td class="text_right">
@@ -56,7 +56,7 @@
         <tr>
           <th  class="info">支払方法</th>
           <td class="text-left">
-            <%= @order.payment_method %>
+            <%= @order.payment_method_i18n %>
           </td>
         </tr>
         <tr>

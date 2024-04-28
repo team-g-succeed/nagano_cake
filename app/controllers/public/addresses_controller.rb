@@ -14,7 +14,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
       flash.now[:notice] = "新規配送先を登録しました。"
     redirect_to addresses_path
-  else 
+    else 
     render :index
     end 
   end 

@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  after_save :check_active_status
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,7 +20,16 @@ class Customer < ApplicationRecord
     validates :telephone_number
   end  
 
-         
+  # def active_for_authentication?
+  #   super && !is_deleted
+  # end 
+  
+  def check_active_status
+    if saved_change_to_is_active? && !is_active
+      self.update(is_active: false)
+    end 
+  end 
+  
   def full_name
     self.last_name + " " + self.first_name
   end

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-    resources :orders, only: [:new, :index, :show, :create] do
+    resources :orders, only: [:new, :index, :show, :create ] do
     collection do
       post 'confirm'
       get 'thanks'
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update] do
       member do
         get :order_details
-        resource :order_details, only: [:update]
+        resources :order_details, only: [:update]
       end
      end
    end
